@@ -1,6 +1,8 @@
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const GEMINI_API_KEY = 'AIzaSyAPB2rHFk1VudRkV0VDpMRmXFtjHYfkX5I'; // Replace with your actual key
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export default async function fetchTopic(topic) {
     const apiUrl = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=' + GEMINI_API_KEY;
