@@ -18,13 +18,25 @@ function splitText(text, maxBytes = 4500) {
     return chunks;
 }
 
+function sanitizeText(text) {
+    // Remove Markdown formatting symbols: *, _, #, `, >, -, etc.
+    return text
+        .replace(/[*_#`>-]/g, '')      // Remove *, _, #, `, >, -
+        .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove Markdown links, keep text
+        .replace(/!\[(.*?)\]\(.*?\)/g, '$1') // Remove Markdown images, keep alt text
+        .replace(/^\s*[\r\n]/gm, '')   // Remove empty lines
+        .replace(/\s{2,}/g, ' ')       // Replace multiple spaces with one
+        .trim();
+}
+
 export async function synthesizeSpeech(text, outputFile) {
     const chunks = splitText(text);
     let audioBuffers = [];
 
     for (const chunk of chunks) {
+        const sanitized = sanitizeText(chunk);
         const request = {
-            input: { text: chunk },
+            input: { text: sanitized },
             voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' },
             audioConfig: { audioEncoding: 'MP3' },
         };
