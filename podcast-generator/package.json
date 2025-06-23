@@ -1,0 +1,27 @@
+{
+  "name": "podcast-generator",
+  "version": "1.0.0",
+  "description": "A podcast generator that creates podcasts based on user-provided topics.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "podcast",
+    "generator",
+    "audio",
+    "content"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^6.1.0",
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "type": "module"
+}
