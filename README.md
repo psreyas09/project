@@ -33,7 +33,19 @@
 5. You can listen to or download the generated podcast.
 
 ---
+## Working
 
+```bash
+Create .env file
+GEMINI_API_KEY=AIzaSyAKDD-Wf5zL6xqaiV_HcCGVHypZxbgf_-I
+
+export GOOGLE_APPLICATION_CREDENTIALS= project/hackathon-463806-f7d9eb3ff7cc.json #Create a gTS API file first
+
+cd podcast-generator && node server.js
+
+cd podcast-generator-ui/
+streamlit run app.py
+```
 ## 📦 Installation
 
 ```bash
@@ -41,7 +53,7 @@ git clone https://github.com/psreyas09/project
 cd project/podgenie
 pip install -r requirements.txt
 streamlit run app.py
-
+```
 
 
  
