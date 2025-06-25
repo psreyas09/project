@@ -52,7 +52,6 @@ streamlit run app.py
 git clone https://github.com/psreyas09/project
 cd project/podgenie
 pip install -r requirements.txt
-streamlit run app.py
 ```
 
 
